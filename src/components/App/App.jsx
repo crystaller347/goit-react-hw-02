@@ -7,16 +7,12 @@ import Notification from "../Notification/Notification.jsx"
 
 export default function App() {
   const [feedback, setFeedback] = useState(() => {
-    const savedFeedback = window.localStorage.getItem("saved-feedback")
-    if (savedFeedback !== null) {
-      return savedFeedback;
-    } else {
-      return {
-        good: 0,
-        neutral: 0,
-        bad: 0
-      }
-    }
+    const savedFeedback = window.localStorage.getItem("saved-feedback");
+    return savedFeedback ? JSON.parse(savedFeedback) : {
+      good: 0,
+      neutral: 0,
+      bad: 0
+    };
   });
 
   const updateFeedback = feedbackType => {
@@ -27,7 +23,7 @@ export default function App() {
   };
 
   useEffect(() => {
-    window.localStorage.setItem("saved-feedback", feedback);
+    window.localStorage.setItem("saved-feedback", JSON.stringify(feedback));
   }, [feedback]);
 
   const resetFeedback = () => {
