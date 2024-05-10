@@ -1,5 +1,7 @@
+import css from "./Notification.module.css"
+
 export default function Notification() {
     return (
-        <p>No feedback yet</p>
+        <p className={css.text}>No feedback yet</p>
     )
 }

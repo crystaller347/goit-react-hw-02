@@ -1,4 +1,3 @@
-// import './App.module.css'
 import { useState, useEffect } from "react";
 import Description from "../Description/Description.jsx"
 import Options from "../Options/Options.jsx"
